@@ -57,21 +57,20 @@ AddProject(mc_human
 
 # Panda for torso emulation live
 AddProject(libfranka
-  GITHUB frankaemika/libfranka
-  GIT_TAG origin/0.8.0
+  GITHUB arntanguy/libfranka # using arnaud's fork (tag 0.9.2 does not exist anymore on emika's repo)
+  GIT_TAG origin/master
 )
 
-AddCatkinProject(franka_ros
-  GITHUB frankaemika/franka_ros
-  GIT_TAG origin/0.8.1
-  WORKSPACE mc_rtc_ws
-  DEPENDS libfranka
+AddProject(mc_franka
+  GITHUB arntanguy/mc_franka
+  GIT_TAG origin/topic/FixTimestepThread
+  DEPENDS libfranka mc_rtc
 )
 
 AddProject(mc_panda
   GITHUB jrl-umi3218/mc_panda
   GIT_TAG origin/master
-  DEPENDS mc_rtc libfranka franka_ros
+  DEPENDS mc_rtc libfranka mc_franka
 )
 
 # Controller ===============================
