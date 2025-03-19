@@ -61,16 +61,16 @@ AddProject(libfranka
   GIT_TAG origin/master
 )
 
-AddProject(mc_franka
-  GITHUB arntanguy/mc_franka
-  GIT_TAG origin/topic/FixTimestepThread
-  DEPENDS libfranka mc_rtc
-)
-
 AddProject(mc_panda
   GITHUB jrl-umi3218/mc_panda
   GIT_TAG origin/master
-  DEPENDS mc_rtc libfranka mc_franka
+  DEPENDS mc_rtc libfranka
+)
+
+AddProject(mc_franka
+  GITHUB arntanguy/mc_franka
+  GIT_TAG origin/topic/FixTimestepThread
+  DEPENDS libfranka mc_rtc mc_panda
 )
 
 # Controller ===============================
