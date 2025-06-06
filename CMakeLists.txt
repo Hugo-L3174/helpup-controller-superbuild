@@ -48,16 +48,17 @@ AddProject(mc_udp
 
 # Human model
 AddCatkinProject(human_description
-  GITE hlefevre/human_description
+  GITHUB jrl-umi3218/human_description
   GIT_TAG origin/master
   WORKSPACE data_ws
 )
 
 AddProject(mc_human
-  GITE hlefevre/mc_human
+  GITHUB jrl-umi3218/mc_human
   GIT_TAG origin/master
   DEPENDS human_description mc_rtc
 )
+
 
 # Panda for torso emulation live
 AddProject(libfranka
