@@ -2,7 +2,7 @@
 AddProject(Stabiliplus
   GITE mc-controllers/stabiliplus
   GIT_TAG origin/topic/Optimize
-  APT_PACKAGES libeigen3-dev libglpk-dev libtinyxml2-dev
+  APT_DEPENDENCIES libeigen3-dev libglpk-dev libtinyxml2-dev libtbb-dev
 )
 
 AddProject(gram_savitzky_golay
@@ -17,9 +17,12 @@ AddProject(mc_force_shoe_plugin
   DEPENDS mc_rtc
 )
 
+include(mtsdk.cmake)
+
 AddProject(xsens_streaming
   GITHUB arntanguy/xsens_streaming
   GIT_TAG origin/main
+  CMAKE_ARGS -DMTSDK_PREFIX=${CMAKE_INSTALL_PREFIX}/mtsdk
 )
 
 AddProject(mc_xsens_plugin
@@ -38,6 +41,7 @@ AddProject(mc_udp
   GITHUB arntanguy/mc_udp
   GIT_TAG origin/topic/UDPPlugin
   DEPENDS mc_rtc
+  CMAKE_ARGS -DBUILD_OPENRTM_SERVER=OFF
 )
 
 # Robot modules ===============================
@@ -59,6 +63,8 @@ AddProject(mc_human
 AddProject(libfranka
   GITHUB arntanguy/libfranka # using arnaud's fork (tag 0.9.2 does not exist anymore on emika's repo)
   GIT_TAG origin/master
+  CMAKE_ARGS -DBUILD_TESTS=OFF
+  APT_DEPENDENCIES libpoco-dev libeigen3-dev libfmt-dev
 )
 
 AddProject(mc_panda
