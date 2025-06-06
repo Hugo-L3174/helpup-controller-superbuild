@@ -83,5 +83,5 @@ AddProject(mc_franka
 AddProject(helpupcontroller
   GITE hlefevre/helpupcontroller
   GIT_TAG origin/master
-  DEPENDS Stabiliplus gram_savitzky_golay mc_human mc_panda mc_robot_model_update mc_force_shoe_plugin mc_xsens_plugin mc_udp
+  DEPENDS Stabiliplus gram_savitzky_golay mc_state_observation mc_human mc_panda mc_robot_model_update mc_force_shoe_plugin mc_xsens_plugin mc_udp
 )
