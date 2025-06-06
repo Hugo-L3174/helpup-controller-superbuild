@@ -10,9 +10,17 @@ if(NOT EXISTS ${CMAKE_INSTALL_PREFIX}/mtsdk)
   )
   message(STATUS "MTSDK - Archive extracted to ${CMAKE_CURRENT_BINARY_DIR}/mtsdk")
 
+  set(MTSDK_INSTALL_COMMAND "")
+  if(${USE_SUDO})
+    set(MTSDK_INSTALL_COMMAND "${SUDO_CMD} echo -e ${CMAKE_INSTALL_PREFIX}/mtsdk | ./mtsdk_linux-x64_2025.0.sh")
+  else()
+    set(MTSDK_INSTALL_COMMAND "echo -e ${CMAKE_INSTALL_PREFIX}/mtsdk | ./mtsdk_linux-x64_2025.0.sh")
+  endif()
+  message(STATUS "MTSDK - install command is: ${MTSDK_INSTALL_COMMAND}")
+
   execute_process(
     WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/mtsdk/MT_Software_Suite_linux-x64_2025.0
-    COMMAND bash -c "echo -e ${CMAKE_INSTALL_PREFIX}/mtsdk | ./mtsdk_linux-x64_2025.0.sh"
+    COMMAND bash -c "${MTSDK_INSTALL_COMMAND}"
     OUTPUT_VARIABLE output
     ERROR_VARIABLE error_output
     RESULT_VARIABLE result
