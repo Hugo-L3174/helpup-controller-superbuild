@@ -41,7 +41,7 @@ AddProject(mc_udp
   GITHUB arntanguy/mc_udp
   GIT_TAG origin/topic/UDPPlugin
   DEPENDS mc_rtc
-  CMAKE_ARGS -DBUILD_OPENRTM_SERVER=OFF
+  CMAKE_ARGS -DBUILD_OPENRTM_SERVER=OFF -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 )
 
 # Robot modules ===============================
@@ -82,7 +82,7 @@ AddProject(mc_franka
 
 # Controller ===============================
 AddProject(helpupcontroller
-  GITE hlefevre/helpupcontroller
+  GITHUB Hugo-L3174/HelpUpController
   GIT_TAG origin/master
   DEPENDS Stabiliplus gram_savitzky_golay mc_state_observation mc_human mc_panda mc_robot_model_update mc_force_shoe_plugin mc_xsens_plugin mc_udp
 )

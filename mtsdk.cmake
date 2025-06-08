@@ -12,7 +12,7 @@ if(NOT EXISTS ${CMAKE_INSTALL_PREFIX}/mtsdk)
 
   set(MTSDK_INSTALL_COMMAND "")
   if(${USE_SUDO})
-    set(MTSDK_INSTALL_COMMAND "${SUDO_CMD} echo -e ${CMAKE_INSTALL_PREFIX}/mtsdk | ./mtsdk_linux-x64_2025.0.sh")
+    set(MTSDK_INSTALL_COMMAND "echo -e ${CMAKE_INSTALL_PREFIX}/mtsdk | ${SUDO_CMD} ./mtsdk_linux-x64_2025.0.sh")
   else()
     set(MTSDK_INSTALL_COMMAND "echo -e ${CMAKE_INSTALL_PREFIX}/mtsdk | ./mtsdk_linux-x64_2025.0.sh")
   endif()
